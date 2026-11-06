@@ -8,64 +8,95 @@
 <body>
     <h2>PRESS 'ADD' TO ADD RANDOM NUMBERS</h2>
     <button onclick="addnum()" class="addnum">ADD</button>
-    <h3>THE NUMBER YOU HAVE GOT IS :</h3><p id="prandom">0</p><br>
+    
+    <div class="result-row">
+        <h3>THE NUMBER YOU HAVE GOT IS :</h3><p id="prandom">0</p>
+    </div>
+    
+    <div class="btn-row">
+        <button id="cycle" onclick="addagain()">ADD ⟳</button>
+        <button id="back" onclick="pageback()">BACK</button>
+    </div>
 
-    <button id="cycle" onclick="addagain()">ADD &#10227;</button><button id="back" onclick="pageback()">BACK</button>
     <style>
-        #back{
-            margin-left: 2%;
+        /* Centering body fix for mobile */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 40px;
+            box-sizing: border-box;
+            font-family: sans-serif;
         }
-        #cycle{
-            display:inline-block;
-            margin-left:43% ;
-            margin-top:6%
-        }
-        h2{
-            position: absolute;
-            display:block;
-            margin-left:29%; margin-right:0px ;
-        }
-        .addnum{
-            margin-left: 46%;
-            margin-top: 10%;
-        }
-        h3{
-            display: inline-block;
-                        margin-left: 35%;
-            margin-top: 10%;
-        }
-        #prandom{
-            display: inline-block;
-            margin-left: 2%;
-            margin-top: 10%;
 
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
         }
-        
+
+        .addnum {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .result-row {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h3 {
+            display: inline-block;
+            margin: 0;
+        }
+
+        #prandom {
+            display: inline-block;
+            margin: 0 0 0 10px;
+            font-weight: bold;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cycle, #back {
+            padding: 10px 20px;
+            display: inline-block;
+        }
     </style>
     <script>
         let back=document.getElementById("back");
-         let prandom=document.getElementById("prandom");
+        let prandom=document.getElementById("prandom");
        
         let total=Number(localStorage.getItem("total")) ||0;
-           let highest=Number(localStorage.getItem("highest")) ||0;
+        let highest=Number(localStorage.getItem("highest")) ||0;
+        
         function addnum(){
             let random=Math.floor(Math.random()*501);
             total=total+random;
-           highest=Math.max(highest,random);
-           localStorage.setItem("total",total);
-           localStorage.setItem("highest",highest);
-           prandom.textContent=random;}
+            highest=Math.max(highest,random);
+            localStorage.setItem("total",total);
+            localStorage.setItem("highest",highest);
+            prandom.textContent=random;
+        }
         function pageback(){
             window.location.href="index.html";
         }
-function addagain(){
+        function addagain(){
             let random=Math.floor(Math.random()*501);
             total=total+random;
-           highest=Math.max(highest,random);
-           localStorage.setItem("total",total);
-           localStorage.setItem("highest",highest);
-           prandom.textContent=random;}
-        
+            highest=Math.max(highest,random);
+            localStorage.setItem("total",total);
+            localStorage.setItem("highest",highest);
+            prandom.textContent=random;
+        }
     </script>
 </body>
 </html>

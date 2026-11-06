@@ -17,33 +17,38 @@
     </div>
     <button id="add" onclick="add()">ADD</button>
 <style>
+/* Centering body fix for mobile */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
 .ca{
     border-radius: 10px;
 }
 .container{
-    position: absolute;
     border-color: black;
     border-style: solid;
     border-width: 5px;
-    
-    display: inline-block;
+    display: inline-flex;
     padding:0px;
-    margin-left: 34%;
-    
-
-    display:absolute;
-    
+    margin-bottom: 40px; /* Switched margin-left to standard bottom spacing */
 }
    .one{
     display: inline-block;
-            background-color: black;
+    background-color: black;
     color:white;
     font-weight: 200;
     padding-right:20px ;
     padding-left:20px ;
     padding-top:1px ;
     padding-bottom:1px ;
-
    } 
    .two{
     display:inline-block;
@@ -52,6 +57,10 @@
     padding-top:1px;
     padding-bottom: 1px;
    }
+   /* Reset standard H1 margins to stop top pushing */
+   .container h1 {
+    margin: 10px 0;
+   }
    h3{
     display:inline;
    }
@@ -59,36 +68,29 @@
     display:inline;
    }
    .ta{
-
-        margin: 20px 0;
+    margin: 20px 0;
     text-align: center;
     letter-spacing: 0.5px;
-
    }
    
    #trans{
     width:250px;
     height:250px;
-    position: absolute;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-     border-radius: 25px;
+    border-radius: 25px;
     background-color: yellow;
-    margin-top:11%;
-    margin-left: 38%;
+    margin-bottom: 40px; /* Switched margin-left/top to standard bottom spacing */
     box-shadow: 5px 7px 15px cyan,-5px -7px 15px cyan;
    }
    #add{
     padding:20px;
     border-radius: 15px;
-    margin-top:34%;
-    margin-left: 46%;
    }
-
-   </style>
+</style>
 <script>
  let totalhere =document.getElementById("tap");
  let highesthere=document.getElementById("hp");
