@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>PRESS 'ADD' TO ADD RANDOM NUMBERS</h2>
+    <button onclick="addnum()" class="addnum">ADD</button>
+    <h3>THE NUMBER YOU HAVE GOT IS :</h3><p id="prandom">0</p><br>
+
+    <button id="cycle" onclick="addagain()">ADD &#10227;</button><button id="back" onclick="pageback()">BACK</button>
+    <style>
+        #back{
+            margin-left: 2%;
+        }
+        #cycle{
+            display:inline-block;
+            margin-left:43% ;
+            margin-top:6%
+        }
+        h2{
+            position: absolute;
+            display:block;
+            margin-left:29%; margin-right:0px ;
+        }
+        .addnum{
+            margin-left: 46%;
+            margin-top: 10%;
+        }
+        h3{
+            display: inline-block;
+                        margin-left: 35%;
+            margin-top: 10%;
+        }
+        #prandom{
+            display: inline-block;
+            margin-left: 2%;
+            margin-top: 10%;
+
+        }
+        
+    </style>
+    <script>
+        let back=document.getElementById("back");
+         let prandom=document.getElementById("prandom");
+       
+        let total=Number(localStorage.getItem("total")) ||0;
+           let highest=Number(localStorage.getItem("highest")) ||0;
+        function addnum(){
+            let random=Math.floor(Math.random()*501);
+            total=total+random;
+           highest=Math.max(highest,random);
+           localStorage.setItem("total",total);
+           localStorage.setItem("highest",highest);
+           prandom.textContent=random;}
+        function pageback(){
+            window.location.href="index.html";
+        }
+function addagain(){
+            let random=Math.floor(Math.random()*501);
+            total=total+random;
+           highest=Math.max(highest,random);
+           localStorage.setItem("total",total);
+           localStorage.setItem("highest",highest);
+           prandom.textContent=random;}
+        
+    </script>
+</body>
+</html>
